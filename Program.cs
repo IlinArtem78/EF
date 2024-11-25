@@ -1,48 +1,48 @@
-﻿using EF_Library; 
+﻿using EF_Library;
+using EF_Library.Models;
+using EF_Library.View;
+using Microsoft.Identity.Client;
 
 
 class Program
 {
     static void Main(string[] args)
     {
-        /*
-        using (var db = new EF_Library.AppContext())
-        {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
-            var user1 = new User { Name = "Artur", Role = "admin" };
-            var user2 = new User { Name = "Sergey", Role = "user" }; 
 
-            db.Users.Add(user1);
-            db.Users.Add(user2);    
-            db.SaveChanges();
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
+        Console.WriteLine("Работа приложения практического задания PJ-02 <<<<ILIN.Artem>>>>");
+        Console.WriteLine();
+        Console.WriteLine();
+        Console.WriteLine("Выберите необходимую команду для работы с базой"); 
+        Console.WriteLine();
+        Console.WriteLine("1 - Ввести данные в базу; 2 - Работа моделью данных;  3 - Сортировка книг; 4 - Сортировка пользователей ");
+        byte num = byte.Parse(Console.ReadLine());
+        try {
+            var test = new UserAddBooks();
+            switch (num)
+        {
+            case 1:
+                        
+                break;
+                case 2:
+
+                break;
+                case 3:
+                    var sb = new SortedBooks(new BookRepository()); 
+                break;
+                case 4:
+
+                break;
+                default: Console.WriteLine();
+                Console.WriteLine("Значение не верно, повторите ввод"); 
+                break;
+        }
+        }
+        catch (Exception ex) {
+            Console.WriteLine(ex.ToString());   
 
         }
-        */
-            var bookRep = new BookRepository();
-           // var book1 = new Books { Name = "Книга 1", Year = 1942 };
-           // Books book2 = new Books { Name = "Книга 2", Year = 1945 };
 
-        using (var db1 = new EF_Library.AppContext())
-        {
-            var book1 = new EF_Library.Book { Name = "Книга 1", Year = 1942 };
-            db1.Books.Add(book1);
-            db1.SaveChanges();
-
-        }
-
-
-
-
-       // bookRep.AddBook(book1);
-       //     bookRep.AddBook(book2);
-       //    Console.WriteLine("Введите название книги");
-       //     string test = Console.ReadLine();
-       //     bookRep.UpdateBookById(2, test);
-
-
-
-
-       
 
     }
 
